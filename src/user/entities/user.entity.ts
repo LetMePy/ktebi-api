@@ -1,6 +1,7 @@
 import {Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm';
 import {ApiProperty} from '@nestjs/swagger';
 import {Exclude} from "class-transformer";
+import {UserRoleEnum} from 'src/enums/user-role.enum';
 
 @Entity()
 export class User {
@@ -28,6 +29,18 @@ export class User {
     @Column()
     @Exclude()
     password: string;
+
+    @ApiProperty()
+    @Column()
+    @Exclude()
+    salt: string;
+
+    @Column({
+        type: 'enum',
+        default: UserRoleEnum.USER,
+        enum: UserRoleEnum,
+    })
+    role: string;
 
     @Exclude()
     @CreateDateColumn()

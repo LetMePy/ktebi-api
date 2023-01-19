@@ -12,10 +12,10 @@ import {ShoppingCardModule} from './shopping-card/shopping-card.module';
         TypeOrmModule.forRoot({
             type: 'postgres',
             host: 'localhost',
-            port: 5432,
+            port: 5436,
             username: 'postgres',
-            password: 'postgres',
-            database: 'ktebi',
+            password: 'monmon',
+            database: 'DB',
             autoLoadEntities: true,
             synchronize: true,
             logging: true,
